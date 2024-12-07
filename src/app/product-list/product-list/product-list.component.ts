@@ -20,4 +20,8 @@ export class ProductListComponent implements OnInit{
     })
   }
 
+  handleSubmit(name: string) {
+    alert(`${name} is added to cart`)
+  }
+
 }

@@ -7,7 +7,7 @@
                 <p>${{product.price}}</p>
                 <div>
                     Amount: 
-                    <input type="number" name="" (change)="calculateTotal(product)" id="" class="number-input padding-y-s" [(ngModel)]="product.amount" [ngModelOptions]="{standalone: true}">
+                    <input type="number" name="" [(ngModel)]="product.amount" (ngModelChange)="calculateTotal(product)" id="" class="number-input padding-y-s" [ngModelOptions]="{standalone: true}">
                 </div>
             </div>
         </div>
