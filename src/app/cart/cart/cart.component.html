@@ -51,7 +51,7 @@
 
                 <small *ngIf="form.controls['credit-number']?.invalid && form.controls['credit-number']?.touched">
                     <span *ngIf="form.controls['credit-number']?.errors?.['required']" class="invalid-msg">Credit number is required.</span>
-                    <span *ngIf="form.controls['credit-number']?.errors?.['pattern']" class="invalid-msg">Must be 16 characters</span>
+                    <span *ngIf="form.controls['credit-number']?.errors?.['pattern']" class="invalid-msg">Must be 16 numbers</span>
                 </small>
             </div>
         </div>
