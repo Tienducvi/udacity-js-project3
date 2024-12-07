@@ -1,0 +1,22 @@
+.header {
+    text-align: center;
+    background: #33B5E5;
+    color: #fff;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  a {
+    color: #ffffff;
+  }
+
+  .nav-bar-title {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .display-inline {
+    display: inline;
+  }

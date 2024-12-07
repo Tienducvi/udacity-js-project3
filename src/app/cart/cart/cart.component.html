@@ -1,0 +1,62 @@
+<form #form="ngForm" (ngSubmit)="submitForm(form)" class="container cart-container" *ngIf="cart.products && cart.products.length > 0">
+    <div class="container cart-item-details">
+        <div class="container cart-item" *ngFor="let product of cart.products">
+            <img src="{{product.url}}" alt="">
+            <div class="product-detail cart-panel">
+                <h4>{{product.name}}</h4>
+                <p>${{product.price}}</p>
+                <div>
+                    Amount: 
+                    <input type="number" name="" (change)="calculateTotal(product)" id="" class="number-input padding-y-s" [(ngModel)]="product.amount" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+        </div>
+        
+        <h2>Total: ${{cart.total}}</h2>
+    </div>
+
+    <div class="form-margin">
+        <div class="margin-bottom-m">
+            <div class="margin-bottom-m">
+                <label for="fullname">Full name</label>
+            </div>
+            <div class="display-flex">
+                <input type="text" name="fullname" id="fullname" placeholder="(minimum 3 characters)" class="form-control padding-y-m padding-x-s width-280px" required minlength="3" [(ngModel)]="cart.fullName">
+                
+                 <small *ngIf="form.controls['fullname']?.invalid && (form.controls['fullname']?.touched || form.controls['fullname']?.dirty)">
+                    <span *ngIf="form.controls['fullname']?.errors?.['required']" class="invalid-msg">Full name is required.</span>
+                    <span *ngIf="form.controls['fullname']?.errors?.['minlength']" class="invalid-msg">Minimum 3 characters required.</span>
+                </small>
+            </div>
+        </div>
+        <div class="margin-bottom-m">
+            <div class="margin-bottom-base">
+                <label for="address">Address</label>
+            </div>
+            <div class="display-flex">
+                <input type="text" name="address" id="address" placeholder="(minimum 6 characters)" class="form-control padding-y-m padding-x-s width-280px" required minlength="6" [(ngModel)]="cart.address">
+
+                <small *ngIf="form.controls['address']?.invalid && form.controls['address']?.touched">
+                    <span *ngIf="form.controls['address']?.errors?.['required']" class="invalid-msg">Address is required.</span>
+                    <span *ngIf="form.controls['address']?.errors?.['minlength']" class="invalid-msg">Minimum 6 characters required.</span>
+                </small>
+            </div>
+        </div>
+        <div class="margin-bottom-m">
+            <div class="margin-bottom-m">
+                <label for="credit-number">Credit card number</label>
+            </div>
+            <div class="display-flex">
+                <input type="text" name="credit-number" id="credit-number" placeholder="(16-digit number)" class="form-control padding-y-m padding-x-s width-280px" required minlength="16" maxlength="16" pattern="^\d{16}$" [(ngModel)]="cart.creditNumber">
+
+                <small *ngIf="form.controls['credit-number']?.invalid && form.controls['credit-number']?.touched">
+                    <span *ngIf="form.controls['credit-number']?.errors?.['required']" class="invalid-msg">Credit number is required.</span>
+                    <span *ngIf="form.controls['credit-number']?.errors?.['pattern']" class="invalid-msg">Must be 16 characters</span>
+                </small>
+            </div>
+        </div>
+        <p class="margin-bottom-m font-size-12px opacity-lighter">We'll never share yout payment details with anyone else.</p>
+        <button type="submit" class="cart-button" [disabled]="form.invalid">Submit</button>
+    </div>
+
+</form>
